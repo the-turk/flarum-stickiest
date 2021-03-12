@@ -11,7 +11,6 @@ namespace Flarum\Sticky;
 
 use Flarum\Filter\FilterState;
 use Flarum\Query\QueryCriteria;
-use Flarum\Sticky\Gambit\StickyGambit;
 use Flarum\Tags\Query\TagFilterGambit;
 
 class PinStickiedDiscussionsToTop
