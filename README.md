@@ -16,7 +16,7 @@ Screenshots:
 ## Installation
 
 ```bash
-composer require the-turk/flarum-stickiest:2.0.0-beta.1
+composer require the-turk/flarum-stickiest:^2.0@beta
 ```
 
 ## Usage
