@@ -31,8 +31,6 @@ Enable the extension and set the permissions, choose a badge for super stickied 
 
 3. Stick or super stick the discussion as described above, and click on the "Tag Sticky" button that located in the discussion's controls. Now the discussion should stick only to their tags and won't show up in the "All Discussions" list (even if they have unread posts). Click on the "All Sticky" button to undo it.
 
->! I hope this works LOL. 😂 !<
-
 ## Links
 
 - [Source code on GitHub](https://github.com/the-turk/flarum-stickiest)
