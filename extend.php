@@ -1,7 +1,5 @@
 <?php
 
-//die(print("1"));
-
 /*
  * Stickiest extension for Flarum.
  *

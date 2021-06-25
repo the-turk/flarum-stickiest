@@ -16,15 +16,7 @@ Screenshots:
 ## Installation
 
 ```bash
-composer require the-turk/flarum-stickiest
-```
-
-## Updating
-
-```bash
-composer update the-turk/flarum-stickiest
-php flarum migrate
-php flarum cache:clear
+composer require the-turk/flarum-stickiest:2.0.0-beta.1
 ```
 
 ## Usage

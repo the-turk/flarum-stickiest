@@ -1,6 +1,6 @@
 {
   "name": "@the-turk/flarum-stickiest",
-  "version": "0.1.0-beta.1",
+  "version": "2.0.0-beta.1",
   "dependencies": {
     "flarum-webpack-config": "0.1.0-beta.16.2",
     "webpack": "^4.46.0",

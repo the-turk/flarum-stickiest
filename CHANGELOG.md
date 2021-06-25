@@ -1,3 +1,3 @@
-### 0.1.0-beta.1
+### 2.0.0-beta.1
 
-Initial release.
+Initial _stickiest_ release.
