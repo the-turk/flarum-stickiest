@@ -15,7 +15,6 @@ the-turk-stickiest:
     settings:
       badge_icon_label: Super sticky badge icon
       badge_icon_text: => core.ref.icon_text
-      create_post_label: Create post when discussion's super sticky status has changed
 
   # Translations in this namespace are used by the forum user interface.
   forum:
