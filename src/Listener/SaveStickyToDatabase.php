@@ -1,17 +1,10 @@
 <?php
 
-/*
- * This file is part of Flarum.
- *
- * For detailed copyright and license information, please view the
- * LICENSE file that was distributed with this source code.
- */
-
-namespace Flarum\Sticky\Listener;
+namespace TheTurk\Stickiest\Listener;
 
 use Flarum\Discussion\Event\Saving;
-use Flarum\Sticky\Event\DiscussionWasStickied;
-use Flarum\Sticky\Event\DiscussionWasUnstickied;
+use TheTurk\Stickiest\Event\DiscussionWasStickied;
+use TheTurk\Stickiest\Event\DiscussionWasUnstickied;
 
 class SaveStickyToDatabase
 {
@@ -27,14 +20,14 @@ class SaveStickyToDatabase
 
             $actor->assertCan('sticky', $discussion);
 
-            if ((bool) $discussion->is_sticky === $isSticky) {
+            if ((bool) $discussion->is_stickier === $isSticky) {
                 return;
             }
 
-            $discussion->is_sticky = $isSticky;
+            $discussion->is_stickier = $isSticky;
 
             $discussion->raise(
-                $discussion->is_sticky
+                $discussion->is_stickier
                     ? new DiscussionWasStickied($discussion, $actor)
                     : new DiscussionWasUnstickied($discussion, $actor)
             );

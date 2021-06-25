@@ -1,19 +1,12 @@
 <?php
 
-/*
- * This file is part of Flarum.
- *
- * For detailed copyright and license information, please view the
- * LICENSE file that was distributed with this source code.
- */
-
-namespace Flarum\Sticky\Listener;
+namespace TheTurk\Stickiest\Listener;
 
 use Flarum\Discussion\Discussion;
-use Flarum\Sticky\Event\DiscussionWasStickied;
-use Flarum\Sticky\Event\DiscussionWasUnstickied;
-use Flarum\Sticky\Post\DiscussionStickiedPost;
 use Flarum\User\User;
+use TheTurk\Stickiest\Event\DiscussionWasStickied;
+use TheTurk\Stickiest\Event\DiscussionWasUnstickied;
+use TheTurk\Stickiest\Post\DiscussionStickiedPost;
 
 class CreatePostWhenDiscussionIsStickied
 {

@@ -8,11 +8,11 @@ use Flarum\Search\AbstractRegexGambit;
 use Flarum\Search\SearchState;
 use Illuminate\Database\Query\Builder;
 
-class StickyFilterGambit extends AbstractRegexGambit implements FilterInterface
+class TagStickyFilterGambit extends AbstractRegexGambit implements FilterInterface
 {
     protected function getGambitPattern()
     {
-        return 'is:sticky';
+        return 'is:tagSticky';
     }
 
     protected function conditions(SearchState $search, array $matches, $negate)
@@ -22,7 +22,7 @@ class StickyFilterGambit extends AbstractRegexGambit implements FilterInterface
 
     public function getFilterKey(): string
     {
-        return 'sticky';
+        return 'tagSticky';
     }
 
     public function filter(FilterState $filterState, string $filterValue, $negate)
@@ -32,6 +32,6 @@ class StickyFilterGambit extends AbstractRegexGambit implements FilterInterface
 
     protected function constrain(Builder $query, bool $negate)
     {
-        $query->where('is_stickier', ! $negate);
+        $query->where('is_tagSticky', ! $negate);
     }
 }

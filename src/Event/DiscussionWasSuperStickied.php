@@ -5,7 +5,7 @@ namespace TheTurk\Stickiest\Event;
 use Flarum\Discussion\Discussion;
 use Flarum\User\User;
 
-class DiscussionWasStickied
+class DiscussionWasSuperStickied
 {
     /**
      * @var Discussion

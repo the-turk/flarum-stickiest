@@ -3,18 +3,29 @@ import Model from 'flarum/Model';
 import Discussion from 'flarum/models/Discussion';
 
 import DiscussionStickiedPost from './components/DiscussionStickiedPost';
+import DiscussionSuperStickiedPost from './components/DiscussionSuperStickiedPost';
 import addStickyBadge from './addStickyBadge';
+import addStickiestBadge from './addStickiestBadge';
 import addStickyControl from './addStickyControl';
-import addStickyExcerpt from './addStickyExcerpt';
+import addStickiestControl from './addStickiestControl';
+import addTagStickyControl from './addTagStickyControl';
 
-app.initializers.add('flarum-sticky', () => {
-  app.postComponents.discussionStickied = DiscussionStickiedPost;
+app.initializers.add(
+  'the-turk-stickiest',
+  () => {
+    app.postComponents.discussionStickied = DiscussionStickiedPost;
+    app.postComponents.discussionSuperStickied = DiscussionSuperStickiedPost;
 
-  Discussion.prototype.isSticky = Model.attribute('isSticky');
-  Discussion.prototype.canSticky = Model.attribute('canSticky');
+    Discussion.prototype.isSticky = Model.attribute('isSticky');
+    Discussion.prototype.isStickiest = Model.attribute('isStickiest');
+    Discussion.prototype.isTagSticky = Model.attribute('isTagSticky');
+    Discussion.prototype.canSticky = Model.attribute('canSticky');
 
-  addStickyBadge();
-  addStickyControl();
-  addStickyExcerpt();
-});
-
+    addStickyBadge();
+    addStickiestBadge();
+    addStickyControl();
+    addStickiestControl();
+    addTagStickyControl();
+  },
+  -1
+);

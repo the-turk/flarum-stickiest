@@ -1,25 +1,21 @@
 <?php
 
-/*
- * This file is part of Flarum.
- *
- * For detailed copyright and license information, please view the
- * LICENSE file that was distributed with this source code.
- */
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Builder;
 
 return [
     'up' => function (Builder $schema) {
         $schema->table('discussions', function (Blueprint $table) {
-            $table->index(['is_sticky', 'last_posted_at']);
+            $table->unique(
+                ['is_stickier', 'is_stickiest', 'is_tagSticky', 'last_posted_at'],
+                'discussions_stickiest_last_posted_at'
+            );
         });
     },
 
     'down' => function (Builder $schema) {
         $schema->table('discussions', function (Blueprint $table) {
-            $table->dropIndex(['is_sticky', 'last_posted_at']);
+            $table->dropUnique('discussions_stickiest_last_posted_at');
         });
     }
 ];

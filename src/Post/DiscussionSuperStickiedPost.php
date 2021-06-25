@@ -6,24 +6,24 @@ use Flarum\Post\AbstractEventPost;
 use Flarum\Post\MergeableInterface;
 use Flarum\Post\Post;
 
-class DiscussionStickiedPost extends AbstractEventPost implements MergeableInterface
+class DiscussionSuperStickiedPost extends AbstractEventPost implements MergeableInterface
 {
     /**
      * {@inheritdoc}
      */
-    public static $type = 'discussionStickied';
+    public static $type = 'discussionSuperStickied';
 
     /**
      * {@inheritdoc}
      */
     public function saveAfter(Post $previous = null)
     {
-        // If the previous post is another 'discussion stickied' post, and it's
+        // If the previous post is another 'discussion super stickied' post, and it's
         // by the same user, then we can merge this post into it. If we find
         // that we've in fact reverted the sticky status, delete it. Otherwise,
         // update its content.
         if ($previous instanceof static && $this->user_id === $previous->user_id) {
-            if ($previous->content['sticky'] != $this->content['sticky']) {
+            if ($previous->content['stickiest'] != $this->content['stickiest']) {
                 $previous->delete();
             } else {
                 $previous->content = $this->content;
@@ -44,14 +44,14 @@ class DiscussionStickiedPost extends AbstractEventPost implements MergeableInter
      *
      * @param int $discussionId
      * @param int $userId
-     * @param bool $isSticky
+     * @param bool $isStickiest
      * @return static
      */
-    public static function reply($discussionId, $userId, $isSticky)
+    public static function reply($discussionId, $userId, $isStickiest)
     {
         $post = new static;
 
-        $post->content = static::buildContent($isSticky);
+        $post->content = static::buildContent($isStickiest);
         $post->created_at = time();
         $post->discussion_id = $discussionId;
         $post->user_id = $userId;
@@ -62,11 +62,11 @@ class DiscussionStickiedPost extends AbstractEventPost implements MergeableInter
     /**
      * Build the content attribute.
      *
-     * @param bool $isSticky Whether or not the discussion is stickied.
+     * @param bool $isStickiest Whether or not the discussion is stickied.
      * @return array
      */
-    public static function buildContent($isSticky)
+    public static function buildContent($isStickiest)
     {
-        return ['sticky' => (bool) $isSticky];
+        return ['stickiest' => (bool) $isStickiest];
     }
 }
