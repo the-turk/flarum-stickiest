@@ -13,6 +13,9 @@ Screenshots:
 - [Super Sticky Discussion in All Discussions List](https://i.imgur.com/ANKsbBG.png)
 - [Super Sticky & Tag Sticky Discussion in Tag's Discussion List](https://i.imgur.com/7q52yb4.png)
 
+## Requirements / Known Issues
+It looks like this fork only works on **MariaDB 10.0.5+** atm. Using this on **MySQL v8.0.25** throws `Syntax error or access violation: 1235 This version of MySQL doesn’t yet support ‘nesting of unions at the right-hand side’`
+
 ## Installation
 
 ```bash
