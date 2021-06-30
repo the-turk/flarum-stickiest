@@ -43,13 +43,11 @@ class PinStickiedDiscussionsToTop
             $sticky->where('is_stickier', true);
             $sticky->orders = null;
 
-            $query->union($sticky);
-
             $stickiest = clone $query;
             $stickiest->where('is_stickiest', true);
             $stickiest->orders = null;
 
-            $query->union($stickiest);
+            $query->union($sticky)->union($stickiest);
 
             $query->orderBy('is_stickiest', 'desc');
 
