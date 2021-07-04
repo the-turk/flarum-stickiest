@@ -24,7 +24,7 @@ class SaveStickiestToDatabase
                 return;
             }
 
-            $discussion->is_stickier = !$isStickiest;
+            $discussion->is_sticky = !$isStickiest;
             $discussion->is_stickiest = $isStickiest;
             
             $discussion->raise(

@@ -24,7 +24,7 @@ class PinStickiedDiscussionsToTop
                         $query->orders = [];
                     }
                     
-                    array_unshift($query->orders, ['column' => 'is_stickier', 'direction' => 'desc']);
+                    array_unshift($query->orders, ['column' => 'is_sticky', 'direction' => 'desc']);
                     array_unshift($query->orders, ['column' => 'is_stickiest', 'direction' => 'desc']);
                 }
 
@@ -40,7 +40,7 @@ class PinStickiedDiscussionsToTop
             // stickied and super stickied discussions, marry them into the main query, order by
             // super stickied discussions and then reorder the unread ones up to the top.
             $sticky = clone $query;
-            $sticky->where('is_stickier', true);
+            $sticky->where('is_sticky', true);
             $sticky->orders = null;
 
             $stickiest = clone $query;
@@ -61,7 +61,7 @@ class PinStickiedDiscussionsToTop
             // Add the bindings manually (rather than as the second
             // argument in orderByRaw) for now due to a bug in Laravel which
             // would add the bindings in the wrong order.
-            $query->orderByRaw('is_stickier and not exists ('.$read->toSql().') and last_posted_at > ? desc')
+            $query->orderByRaw('is_sticky and not exists ('.$read->toSql().') and last_posted_at > ? desc')
                 ->addBinding(array_merge($read->getBindings(), [$filterState->getActor()->read_time ?: 0]), 'union');
                 
             $query->unionOrders = array_merge($query->unionOrders, $query->orders);

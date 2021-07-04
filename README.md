@@ -1,10 +1,8 @@
 # Stickiest
 
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/the-turk/flarum-stickiest/blob/master/LICENSE) [![Latest Stable Version](https://img.shields.io/packagist/v/the-turk/flarum-stickiest.svg)](https://packagist.org/packages/the-turk/flarum-stickiest) [![Total Downloads](https://img.shields.io/packagist/dt/the-turk/flarum-stickiest.svg)](https://packagist.org/packages/the-turk/flarum-stickiest)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/the-turk/flarum-stickiest/blob/master/LICENSE) [![Latest Stable Version](https://img.shields.io/packagist/v/the-turk/flarum-stickiest?include_prereleases)](https://packagist.org/packages/the-turk/flarum-stickiest) [![Total Downloads](https://img.shields.io/packagist/dt/the-turk/flarum-stickiest.svg)](https://packagist.org/packages/the-turk/flarum-stickiest)
 
 Stick, super stick or tag stick discussions to the top of the list.
-
-Forked from the notorious `flarum/sticky` extension, **conflicts** with it and is in beta phase. Give me some feedback so we can tag this as stable.
 
 Screenshots:
 
@@ -16,7 +14,25 @@ Screenshots:
 ## Installation
 
 ```bash
-composer require the-turk/flarum-stickiest:^2.0@beta
+composer require the-turk/flarum-stickiest:^2.0.1
+```
+
+## Updating
+
+```
+composer update the-turk/flarum-stickiest:^2.0.1
+php flarum cache:clear
+```
+
+___
+
+Upgrading from previous `beta` versions (thanks for the test drive, upgrading to stable will cause losing your sticky discussion configurations - I didn't want to perform extra operations to keep them as the extension was in beta phase):
+
+```
+composer remove the-turk/flarum-stickiest
+php flarum migrate:reset --extension the-turk-stickiest
+composer require the-turk/flarum-stickiest:^2.0.1
+php flarum cache:clear
 ```
 
 ## Usage

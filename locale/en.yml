@@ -7,10 +7,6 @@ the-turk-stickiest:
   # Translations in this namespace are used by the admin interface.
   admin:
 
-    # These translations are used in the Permissions page of the admin interface.
-    permissions:
-      sticky_discussions_label: Sticky discussions
-
     # These translations are used in the mentions Settings page.
     settings:
       badge_icon_label: Super sticky badge icon
@@ -28,7 +24,7 @@ the-turk-stickiest:
     # These translations are used by the discussion control buttons.
     discussion_controls:
       sticky_button: => the-turk-stickiest.ref.sticky
-      unsticky_button: Unsticky
+      unsticky_button: => flarum-sticky.forum.discussion_controls.unsticky_button
       super_sticky_button: => the-turk-stickiest.ref.super_sticky
       common_sticky_button: Common Sticky
       tag_sticky_button: => the-turk-stickiest.ref.tag_sticky
@@ -36,8 +32,8 @@ the-turk-stickiest:
 
     # These translations are displayed between posts in the post stream.
     post_stream:
-      discussion_stickied_text: "{username} stickied the discussion."
-      discussion_unstickied_text: "{username} unstickied the discussion."
+      discussion_stickied_text: => flarum-sticky.forum.post_stream.discussion_stickied_text
+      discussion_unstickied_text: => flarum-sticky.forum.post_stream.discussion_unstickied_text
       discussion_super_stickied_text: "{username} marked the discussion as super sticky."
       discussion_common_stickied_text: "{username} unmarked the discussion as super sticky."
 
@@ -47,6 +43,6 @@ the-turk-stickiest:
 
   # Translations in this namespace are referenced by two or more unique keys.
   ref:
-    sticky: Sticky
+    sticky: => flarum-sticky.ref.sticky
     super_sticky: Super Sticky
     tag_sticky: Tag Sticky
