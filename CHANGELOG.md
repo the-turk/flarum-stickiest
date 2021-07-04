@@ -7,8 +7,8 @@
 Upgrading from previous `beta` versions (thanks for the test drive, upgrading to stable will cause losing your sticky discussion configurations - I didn't want to perform extra operations to keep them as the extension was in beta phase):
 
 ```
-composer remove the-turk/flarum-stickiest
 php flarum migrate:reset --extension the-turk-stickiest
+composer remove the-turk/flarum-stickiest
 composer require the-turk/flarum-stickiest:^2.0.1
 php flarum cache:clear
 ```
