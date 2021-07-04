@@ -1,6 +1,6 @@
 ### 2.0.1 (Stable)
 
-- Re-built on top of `flarum/sticky` so if you disable this extension, you won't lose your sticky discussions.
+- Re-built on top of `flarum/sticky` (requires it) so if you disable this extension, you won't lose your sticky discussions.
 - **Fix** permission related errors.
 - **Fix** wrong badge tooltip for tag-stickied discussions.
 
