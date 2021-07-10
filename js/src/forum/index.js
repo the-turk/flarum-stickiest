@@ -1,7 +1,10 @@
+import { extend } from 'flarum/common/extend';
+
 import app from 'flarum/app';
 import Model from 'flarum/Model';
 import Discussion from 'flarum/models/Discussion';
 
+import DiscussionListItem from 'flarum/common/components/DiscussionListItem';
 import DiscussionSuperStickiedPost from './components/DiscussionSuperStickiedPost';
 import addStickyBadge from './addStickyBadge';
 import addStickiestBadge from './addStickiestBadge';
@@ -20,6 +23,27 @@ app.initializers.add(
     addStickiestBadge();
     addStickiestControl();
     addTagStickyControl();
+    
+    extend(DiscussionListItem.prototype, 'oncreate', (out, vnode) => {
+      const $discussionItem = $(vnode.dom).find('.DiscussionListItem-content');
+
+      // select sticky discussions
+      const $sticky = $discussionItem.find('.item-sticky');
+      const $tagSticky = $discussionItem.find('.item-tag-sticky');
+      const $stickiest = $discussionItem.find('.item-stickiest');
+
+      if ($sticky.length) {
+        $sticky.closest('.DiscussionListItem').addClass('Stickiest-stickyItem');
+      }
+
+      if ($tagSticky.length) {
+        $tagSticky.closest('.DiscussionListItem').addClass('Stickiest-tagStickyItem');
+      }
+
+      if ($stickiest.length) {
+        $stickiest.closest('.DiscussionListItem').addClass('Stickiest-stickiestItem');
+      }
+    });
   },
   -1
 );

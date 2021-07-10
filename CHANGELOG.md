@@ -1,3 +1,7 @@
+### 2.0.2
+
+- Add `Stickiest-stickyItem`, `Stickiest-tagStickyItem`, `Stickiest-stickiestItem` classes for discussion list items.
+
 ### 2.0.1 (Stable)
 
 - Re-built on top of `flarum/sticky` (requires it) so if you disable this extension, you won't lose your sticky discussions.

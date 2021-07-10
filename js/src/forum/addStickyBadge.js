@@ -8,7 +8,7 @@ export default function addStickyBadge() {
 
     if ((this.isSticky() || this.isTagSticky()) && !this.isStickiest()) {
       badges.add(
-        'sticky',
+        this.isTagSticky() ? 'tag-sticky' : 'sticky',
         Badge.component({
           type: 'sticky',
           label: this.isTagSticky()
