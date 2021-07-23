@@ -19,7 +19,7 @@ app.initializers.add('the-turk-stickiest', function () {
     .registerPermission(
       {
         icon: app.data.settings['the-turk-stickiest.badge_icon'],
-        label: app.translator.trans('the-turk-stickiest.admin.permissions.stickiest_discussions_label'),
+        label: app.translator.trans('the-turk-stickiest.admin.permissions.super_sticky_discussions_label'),
         permission: 'discussion.stickiest',
       },
       'moderate',
