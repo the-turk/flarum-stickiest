@@ -5,7 +5,7 @@ import Button from 'flarum/components/Button';
 
 export default function addTagStickyControl() {
   extend(DiscussionControls, 'moderationControls', function (items, discussion) {
-    if (discussion.canSticky() && (discussion.isSticky() || discussion.isStickiest())) {
+    if (discussion.canTagSticky() && (discussion.isSticky() || discussion.isStickiest())) {
       items.add(
         'tag-sticky',
         Button.component(

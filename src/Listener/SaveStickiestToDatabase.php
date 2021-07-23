@@ -18,7 +18,7 @@ class SaveStickiestToDatabase
             $discussion = $event->discussion;
             $actor = $event->actor;
 
-            $actor->assertCan('sticky', $discussion);
+            $actor->assertCan('stickiest', $discussion);
 
             if ((bool) $discussion->is_stickiest === $isStickiest) {
                 return;

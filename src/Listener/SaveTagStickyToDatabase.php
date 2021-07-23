@@ -16,7 +16,7 @@ class SaveTagStickyToDatabase
             $discussion = $event->discussion;
             $actor = $event->actor;
 
-            $actor->assertCan('sticky', $discussion);
+            $actor->assertCan('stickiest.tagSticky', $discussion);
 
             if ((bool) $discussion->is_tagSticky === $isTagSticky) {
                 return;

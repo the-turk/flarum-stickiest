@@ -7,6 +7,11 @@ the-turk-stickiest:
   # Translations in this namespace are used by the admin interface.
   admin:
 
+    # These translations are used in the Permissions page of the admin interface.
+    permissions:
+      stickiest_discussions_label: Stickiest discussions
+      tag_sticky_discussions_label: Tag sticky discussions
+
     # These translations are used in the mentions Settings page.
     settings:
       badge_icon_label: Super sticky badge icon

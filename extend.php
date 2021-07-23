@@ -37,6 +37,12 @@ return [
         })
         ->attribute('isTagSticky', function (DiscussionSerializer $serializer, $discussion) {
             return (bool) $discussion->is_tagSticky;
+        })
+        ->attribute('canStickiest', function (DiscussionSerializer $serializer, $discussion) {
+            return (bool) $serializer->getActor()->can('stickiest', $discussion);
+        })
+        ->attribute('canTagSticky', function (DiscussionSerializer $serializer, $discussion) {
+            return (bool) $serializer->getActor()->can('stickiest.tagSticky', $discussion);
         }),
 
     (new Extend\ApiController(ListDiscussionsController::class))

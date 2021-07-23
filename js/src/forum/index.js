@@ -18,12 +18,14 @@ app.initializers.add(
 
     Discussion.prototype.isStickiest = Model.attribute('isStickiest');
     Discussion.prototype.isTagSticky = Model.attribute('isTagSticky');
+    Discussion.prototype.canStickiest = Model.attribute('canStickiest');
+    Discussion.prototype.canTagSticky = Model.attribute('canTagSticky');
 
     addStickyBadge();
     addStickiestBadge();
     addStickiestControl();
     addTagStickyControl();
-    
+
     extend(DiscussionListItem.prototype, 'oncreate', (out, vnode) => {
       const $discussionItem = $(vnode.dom).find('.DiscussionListItem-content');
 

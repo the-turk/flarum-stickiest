@@ -5,7 +5,7 @@ import Button from 'flarum/components/Button';
 
 export default function addStickiestControl() {
   extend(DiscussionControls, 'moderationControls', function (items, discussion) {
-    if (discussion.canSticky() && (discussion.isSticky() || discussion.isStickiest())) {
+    if (discussion.canStickiest() && (discussion.isSticky() || discussion.isStickiest())) {
       items.add(
         'stickiest',
         Button.component(
