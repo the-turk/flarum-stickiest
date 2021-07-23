@@ -1,3 +1,10 @@
+/*
+ * This file is part of Stickiest.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 import EventPost from 'flarum/components/EventPost';
 
 export default class DiscussionSuperStickiedPost extends EventPost {

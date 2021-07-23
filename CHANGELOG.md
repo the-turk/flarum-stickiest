@@ -1,3 +1,7 @@
+### 2.0.3
+
+- Separate permissions for tag sticky / stickiest discussions.
+
 ### 2.0.2
 
 - Add `Stickiest-stickyItem`, `Stickiest-tagStickyItem`, `Stickiest-stickiestItem` classes for discussion list items.
