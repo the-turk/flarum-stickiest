@@ -6,7 +6,7 @@ Stick, super stick or tag stick discussions to the top of the list.
 
 Screenshots:
 
-![Stickiest Modal](https://i.imgur.com/Do7u5TF.png)
+![Stickiest Modal](https://i.imgur.com/6kbvydS.png)
 
 - [Super Sticky Discussion in All Discussions List](https://i.imgur.com/ANKsbBG.png)
 - [Super Sticky & Tag Sticky Discussion in Tag's Discussion List](https://i.imgur.com/7q52yb4.png)
