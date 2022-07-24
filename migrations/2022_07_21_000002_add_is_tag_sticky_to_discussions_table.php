@@ -9,6 +9,6 @@
 
 use Flarum\Database\Migration;
 
-return Migration::addSettings([
-    'the-turk-stickiest.badge_icon' => 'fas fa-layer-group'
+return Migration::addColumns('discussions', [
+    'is_tag_sticky' => ['boolean', 'default' => 0]
 ]);
