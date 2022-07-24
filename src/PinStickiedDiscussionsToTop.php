@@ -6,6 +6,7 @@
  * For detailed copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
  */
+
 namespace TheTurk\Stickiest;
 
 use Flarum\Filter\FilterState;
@@ -28,7 +29,7 @@ class PinStickiedDiscussionsToTop
     protected $tags;
 
     /**
-     * @param Settings $settings
+     * @param Settings      $settings
      * @param TagRepository $tags
      */
     public function __construct(SettingsRepositoryInterface $settings, TagRepository $tags)
@@ -47,12 +48,11 @@ class PinStickiedDiscussionsToTop
             if ($count = count($filters)) {
                 if ($count === 1 && $filters[0] instanceof TagFilterGambit) {
                     /**
-                     * Specific Tag
+                     * Specific Tag.
                      *
                      * Pin tag stickied and stickied discussions to the top
                      * and pin super stickied ones to the uppermost no matter what.
                      */
-
                     $tagSticky = clone $query;
                     $tagSticky->where('is_tag_sticky', true);
 
@@ -81,13 +81,12 @@ class PinStickiedDiscussionsToTop
             }
 
             /**
-             * All Discussions
+             * All Discussions.
              *
              * Pin stickied discussions to the top if they are unread
              * and pin super stickied ones to the uppermost no matter what.
              * Tag stickies will be treated as they're non-sticky.
              */
-
             $displayTagSticky = (bool) $this->settings->get(
                 'the-turk-stickiest.display_tag_sticky'
             );
@@ -114,7 +113,7 @@ class PinStickiedDiscussionsToTop
 
             $tagStickyExcluder = $displayTagSticky ? ' and not is_tag_sticky' : '';
 
-            $query->orderByRaw('is_stickiest' . $tagStickyExcluder . ' desc, is_sticky and not exists (' . $read->toSql() . ') and last_posted_at > ? desc')
+            $query->orderByRaw('is_stickiest'.$tagStickyExcluder.' desc, is_sticky and not exists ('.$read->toSql().') and last_posted_at > ? desc')
                 ->addBinding(array_merge($read->getBindings(), [$filterState->getActor()->read_time ?: 0]), 'union');
 
             $query->unionOrders = array_merge($query->unionOrders, $query->orders);
