@@ -23,5 +23,5 @@ return [
             $table->dropIndex(['is_tag_sticky', 'last_posted_at']);
             $table->dropIndex(['is_tag_sticky', 'created_at']);
         });
-    }
+    },
 ];

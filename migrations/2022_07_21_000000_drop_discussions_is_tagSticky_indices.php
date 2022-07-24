@@ -23,5 +23,5 @@ return [
             $table->index(['is_tagSticky', 'last_posted_at']);
             $table->index(['is_tagSticky', 'created_at']);
         });
-    }
+    },
 ];

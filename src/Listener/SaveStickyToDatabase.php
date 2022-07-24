@@ -6,6 +6,7 @@
  * For detailed copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
  */
+
 namespace TheTurk\Stickiest\Listener;
 
 use Flarum\Discussion\Event\Saving;
@@ -57,7 +58,7 @@ class SaveStickyToDatabase
                         $this->tags->findOrFail($tagId)->stickyStates()->create(
                             [
                                 'discussion_id' => $discussion->id,
-                                'tag_id' => $tagId
+                                'tag_id'        => $tagId,
                             ]
                         );
                     }

@@ -10,5 +10,5 @@
 use Flarum\Database\Migration;
 
 return Migration::dropColumns('discussions', [
-    'is_tagSticky' => ['boolean', 'default' => 0]
+    'is_tagSticky' => ['boolean', 'default' => 0],
 ]);

@@ -6,16 +6,17 @@
  * For detailed copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
  */
+
 namespace TheTurk\Stickiest;
 
 use Flarum\Database\AbstractModel;
 use Flarum\Discussion\Discussion;
 
 /**
- * @property int $discussion_id
- * @property int $tag_id
+ * @property int        $discussion_id
+ * @property int        $tag_id
  * @property Discussion $discussion
- * @property Tag $tag
+ * @property Tag        $tag
  */
 class TagStickyState extends AbstractModel
 {
