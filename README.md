@@ -19,11 +19,18 @@ composer require the-turk/flarum-stickiest:^3.0.0
 
 If you ever see an error like `General error: 1824 Failed to open the referenced table 'tags' ...` while activating `3.0.x`, check if the engine for the `tags` table is InnoDB or not. If not, try switching that to the InnoDB then run and try activating again:
 
+**-- make sure you have that db backup.**
+```sql
+DELETE FROM `migrations` WHERE `migration` = '2021_07_04_000003_set_default_settings' AND `extension` = 'the-turk-stickiest';
+```
 ```bash
 php flarum migrate:reset --extension the-turk-stickiest
 ```
 ```sql
 DROP TABLE `discussion_sticky_tag`;
+```
+```bash
+php flarum migrate
 ```
 
 ## Updating
