@@ -35,10 +35,20 @@ php flarum migrate
 
 ## Updating
 
-```
+```bash
 composer update the-turk/flarum-stickiest
 php flarum cache:clear
 ```
+
+Don't forget to run migrations if you're upgrading from `2.0.x`
+
+```bash
+composer require the-turk/flarum-stickiest:^3.0.0
+php flarum migrate
+php flarum cache:clear
+```
+
+If you have "foreign key" error while running migrations, see "Installation" notes.
 
 ## Usage
 
