@@ -6,6 +6,7 @@
  * For detailed copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
  */
+
 namespace TheTurk\Stickiest\Listener;
 
 use Flarum\Tags\Event\DiscussionWasTagged;
@@ -14,6 +15,7 @@ class DeleteTagStickyWhenTagsAreChanged
 {
     /**
      * @param DiscussionWasTagged $event
+     *
      * @return void
      */
     public function handle(DiscussionWasTagged $event)
