@@ -1,3 +1,7 @@
+### 3.0.1
+
+- **Fix** tag stickied discussions goes missing when you change their tags.
+
 ### 3.0.0
 
 Requires Flarum v1.2.0+ & `flarum/tags` & `flarum/sticky`
