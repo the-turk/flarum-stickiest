@@ -15,6 +15,7 @@ use Flarum\Discussion\Filter\DiscussionFilterer;
 use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
 use Flarum\Tags\Api\Serializer\TagSerializer;
+use Flarum\Tags\Event\DiscussionWasTagged;
 use Flarum\Tags\Tag;
 use TheTurk\Stickiest\Event\DiscussionWasSuperStickied;
 use TheTurk\Stickiest\Event\DiscussionWasUnSuperStickied;
@@ -27,8 +28,8 @@ use TheTurk\Stickiest\TagStickyState;
 
 return [
     (new Extend\Frontend('forum'))
-        ->js(__DIR__.'/js/dist/forum.js')
-        ->css(__DIR__.'/less/forum.less'),
+        ->js(__DIR__ . '/js/dist/forum.js')
+        ->css(__DIR__ . '/less/forum.less'),
 
     (new Extend\Post())
         ->type(DiscussionSuperStickiedPost::class),
@@ -62,12 +63,13 @@ return [
         ->addInclude('stickyTags'),
 
     (new Extend\Frontend('admin'))
-        ->js(__DIR__.'/js/dist/admin.js'),
+        ->js(__DIR__ . '/js/dist/admin.js'),
 
-    new Extend\Locales(__DIR__.'/locale'),
+    new Extend\Locales(__DIR__ . '/locale'),
 
     (new Extend\Event())
         ->listen(Saving::class, Listener\SaveStickyToDatabase::class)
+        ->listen(DiscussionWasTagged::class, Listener\DeleteTagStickyWhenTagsAreChanged::class)
         ->listen(DiscussionWasSuperStickied::class, [Listener\CreatePostWhenDiscussionIsSuperStickied::class, 'whenDiscussionWasSuperStickied'])
         ->listen(DiscussionWasUnSuperStickied::class, [Listener\CreatePostWhenDiscussionIsSuperStickied::class, 'whenDiscussionWasUnSuperStickied']),
 

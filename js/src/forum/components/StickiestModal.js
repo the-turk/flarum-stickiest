@@ -19,7 +19,8 @@ export default class StickiestModal extends Modal {
     super.oninit(vnode);
 
     const discussion = this.attrs.discussion;
-    const stickyTags = Stream(discussion.stickyTags() || []);
+    const discussionTags = discussion.tags();
+    const stickyTags = Stream(discussion.stickyTags().filter((tag) => discussionTags.indexOf(tag) > -1) || []);
 
     this.isSticky = Stream(discussion.isSticky() || false);
     this.isStickiest = Stream(discussion.isStickiest() || false);
@@ -28,7 +29,7 @@ export default class StickiestModal extends Modal {
     if (stickyTags().length > 0) {
       this.tagSlugs = sortTags(stickyTags()).map((tag) => tag.slug());
     } else {
-      this.tagSlugs = sortTags(discussion.tags()).map((tag) => tag.slug());
+      this.tagSlugs = sortTags(discussionTags).map((tag) => tag.slug());
     }
   }
 
