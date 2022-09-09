@@ -16,6 +16,7 @@ import DiscussionSuperStickiedPost from './components/DiscussionSuperStickiedPos
 import addStickyBadge from './addStickyBadge';
 import addStickiestBadge from './addStickiestBadge';
 import addStickyControl from './addStickyControl';
+import addStickyApiInclude from './addStickyApiInclude';
 
 app.initializers.add(
   'the-turk-stickiest',
@@ -31,6 +32,7 @@ app.initializers.add(
     addStickyBadge();
     addStickiestBadge();
     addStickyControl();
+    addStickyApiInclude();
 
     extend(DiscussionListItem.prototype, 'oncreate', (out, vnode) => {
       const $discussionItem = $(vnode.dom).find('.DiscussionListItem-content');
