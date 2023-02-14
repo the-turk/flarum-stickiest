@@ -98,9 +98,13 @@ class PinStickiedDiscussionsToTop
             $sticky = clone $query;
             $sticky->where('is_sticky', true);
             $sticky->orders = null;
+            $sticky->limit = null;
+            $sticky->offset = null;
 
             $stickiest = clone $query;
             $stickiest->where('is_stickiest', true);
+            $stickiest->limit = null;
+            $stickiest->offset = null;
 
             $query->union($sticky)->union($stickiest);
 
