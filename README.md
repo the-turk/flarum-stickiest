@@ -11,10 +11,29 @@ Screenshots:
 - [Super Sticky Discussion in All Discussions List](https://i.imgur.com/ANKsbBG.png)
 - [Super Sticky & Tag Sticky Discussion in Tag's Discussion List](https://i.imgur.com/7q52yb4.png)
 
+# Attention! 注意!
+
+Everything on this page, except this section and the download command, is taken from [the-turk/flarum-stickiest(3.0.0)](https://github.com/the-turk/flarum-stickiest/releases/tag/3.0.0)
+
+此页面的所有内容，除了本节和下载命令，均来自 [the-turk/flarum-stickiest(3.0.0)](https://github.com/the-turk/flarum-stickiest/releases/tag/3.0.0)
+
+If you are installing for the first time, just follow the original
+
+如果你是首次安装，遵循原文即可
+
+If you want to uninstall the-turk/flarum-stickiest and install the modified version of stickiest from this repository, you must pay attention to the following two points.
+
+如果你想要卸载已安装的 the-turk/flarum-stickiest 并安装本仓库的修改版 stickiest ，必须注意以下两点：
+
+- You must close and purge the-turk/flarum-stickiest before installing and opening lrysia/flarum-stickiest
+- 在安装并开启 lrysia/flarum-stickiest 前，必须关闭并重置 the-turk/flarum-stickiest 
+- After Purging the-turk/flarum-stickiest, the database changes caused by the original plugin will be restored, so this plugin will not inherit the settings/database information of the original plugin
+- 重置 the-turk/flarum-stickest 后，原插件造成的数据库变动将被还原，因此本插件不会继承原插件的设置/数据库信息
+
 ## Installation
 
 ```bash
-composer require the-turk/flarum-stickiest:^3.0.0
+composer require lrysia/flarum-stickiest
 ```
 
 If you ever see an error like `General error: 1824 Failed to open the referenced table 'tags' ...` while activating `3.0.x`, check if the engine for the `tags` table is InnoDB or not. If not, try switching that to the InnoDB then run and try activating again:
