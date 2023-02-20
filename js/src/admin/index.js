@@ -9,7 +9,7 @@ import app from 'flarum/app';
 
 app.initializers.add('the-turk-stickiest', function () {
   app.extensionData
-    .for('the-turk-stickiest')
+    .for('lrysia-stickiest')
     .registerSetting({
       setting: 'the-turk-stickiest.badge_icon',
       type: 'text',

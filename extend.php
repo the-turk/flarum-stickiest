@@ -79,7 +79,7 @@ return [
         ->register(PinProvider::class),
 
     (new Extend\Settings())
-        ->default('the-turk-stickiest.badge_icon', 'fas fa-layer-group')
+        ->default('the-turk-stickiest.badge_icon', 'fas fa-bell')
         ->default('the-turk-stickiest.display_tag_sticky', '1')
         ->serializeToForum('stickiest.badge_icon', 'the-turk-stickiest.badge_icon'),
 

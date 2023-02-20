@@ -1,5 +1,5 @@
 {
-  "name": "@the-turk/flarum-stickiest",
+  "name": "@lrysia/flarum-stickiest",
   "private": true,
   "version": "0.0.0",
   "prettier": "@flarum/prettier-config",
