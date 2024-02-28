@@ -20,14 +20,20 @@ export default class StickiestModal extends Modal {
 
     const discussion = this.attrs.discussion;
     const discussionTags = discussion.tags();
-    const stickyTags = Stream(discussion.stickyTags().filter((tag) => discussionTags.indexOf(tag) > -1) || []);
+
 
     this.isSticky = Stream(discussion.isSticky() || false);
     this.isStickiest = Stream(discussion.isStickiest() || false);
     this.isTagSticky = Stream(discussion.isTagSticky() || false);
+    console.log(this.isTagSticky);
+    if (this.isTagSticky == Stream(discussion.isTagSticky())) {
+      const stickyTags = Stream(discussion.stickyTags().filter((tag) => discussionTags.indexOf(tag) > -1) || []);
 
-    if (stickyTags().length > 0) {
-      this.tagSlugs = sortTags(stickyTags()).map((tag) => tag.slug());
+      if (stickyTags().length > 0) {
+        this.tagSlugs = sortTags(stickyTags()).map((tag) => tag.slug());
+      } else {
+        this.tagSlugs = sortTags(discussionTags).map((tag) => tag.slug());
+      }
     } else {
       this.tagSlugs = sortTags(discussionTags).map((tag) => tag.slug());
     }
